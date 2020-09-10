@@ -8,6 +8,7 @@ import '@fortawesome/fontawesome-free/js/all';
 export default function MainInfo({ data }) {
   const [mouseIn, setMouseIn] = useState(false);
   const [currentDiv, setCurrentDiv] = useState('principal');
+  const [stateData, setStateData] = useState({});
 
   const onlyCases = data
     .map(({ cases, deaths, refuses, suspects }) => {
@@ -18,13 +19,16 @@ export default function MainInfo({ data }) {
         suspects,
       };
     })
-    .reduce((acc, curr) => {
-      acc.cases += curr.cases;
-      acc.deaths += curr.deaths;
-      acc.refuses += curr.refuses;
-      acc.suspects += curr.suspects;
-      return acc;
-    });
+    .reduce(
+      (acc, curr) => {
+        acc.cases += curr.cases;
+        acc.deaths += curr.deaths;
+        acc.refuses += curr.refuses;
+        acc.suspects += curr.suspects;
+        return acc;
+      },
+      { cases: 0, deaths: 0, refuses: 0, suspects: 0 }
+    );
 
   const handleMouseEvent = (event, divId) => {
     if (event.type === 'mouseenter') {
@@ -34,6 +38,11 @@ export default function MainInfo({ data }) {
     } else if (event.type === 'click') {
       setCurrentDiv(divId);
     }
+  };
+
+  const handleStateSelection = (state) => {
+    const filteredState = data.filter((object) => object.uf === state);
+    setStateData(filteredState);
   };
 
   return (
@@ -57,6 +66,8 @@ export default function MainInfo({ data }) {
         mouseIn={mouseIn}
         currentDiv={currentDiv}
         mouseEvent={handleMouseEvent}
+        handleStateSelection={handleStateSelection}
+        data={stateData[0]}
       />
       <Etc
         mouseIn={mouseIn}

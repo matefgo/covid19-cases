@@ -12,7 +12,7 @@ export default function Principal({ mouseIn, mouseEvent, currentDiv }) {
       setTextStatus('hide');
     } else if (currentDiv === 'principal') {
       setDivStatus('sm-9 col-lg-9');
-      setIconStatus('mx-auto mt-5 mb-4 my-lg-4');
+      setIconStatus('mx-auto my-5 my-lg-4');
       setTextStatus('showText');
     } else {
       setDivStatus('sm-1 col-lg-1');
@@ -29,9 +29,9 @@ export default function Principal({ mouseIn, mouseEvent, currentDiv }) {
 
   return (
     <div id="principal" className={divStatus} onClick={handleDivClick}>
-      <div className="h100 overScroll d-flex flex-column m-auto">
-        <div id="icon" className={`d-flex align-items-center ${iconStatus}`}>
-          <i className="mr-2 fas fa-viruses"></i>
+      <div className="d-flex flex-column m-auto h100 overScroll">
+        <div id="icon" className={`d-flex ${iconStatus}`}>
+          <i className="fas fa-viruses m-auto"></i>
           <p
             id="subtitle"
             className={
@@ -44,7 +44,7 @@ export default function Principal({ mouseIn, mouseEvent, currentDiv }) {
           </p>
           <div
             id="title"
-            className={`mx-lg-3 text-center ${
+            className={`text-center ml-3 my-auto ${
               divStatus === 'sm-1 col-lg-1' && 'd-none'
             }`}
           >

@@ -1,19 +1,31 @@
 import React, { useState, useEffect } from 'react';
+import SelectState from './SelectState';
+import StateData from './StateData';
 
-export default function Data({ mouseIn, mouseEvent, currentDiv }) {
+export default function Data({
+  mouseIn,
+  mouseEvent,
+  currentDiv,
+  handleStateSelection,
+  data,
+}) {
   const [divStatus, setDivStatus] = useState('sm-2 col-lg-2');
-  const [iconStatus, setIconStatus] = useState('mx-lg-auto');
+  const [iconStatus, setIconStatus] = useState('m-auto');
+  const [textStatus, setTextStatus] = useState('hide');
 
   useEffect(() => {
     if (!mouseIn) {
-      setDivStatus('sm-2 col-lg-2');
-      setIconStatus('mx-lg-auto');
+      setDivStatus('sm-2 col-lg-2 overScroll');
+      setIconStatus('m-auto');
+      setTextStatus('hide');
     } else if (currentDiv === 'data') {
       setDivStatus('sm-9 col-lg-9');
-      setIconStatus('');
+      setIconStatus('mx-auto my-5 my-lg-4');
+      setTextStatus('showText');
     } else {
       setDivStatus('sm-1 col-lg-1');
-      setIconStatus('mx-lg-auto');
+      setIconStatus('m-auto');
+      setTextStatus('hide');
     }
   }, [mouseIn, currentDiv]);
 
@@ -23,22 +35,42 @@ export default function Data({ mouseIn, mouseEvent, currentDiv }) {
     }
   };
 
+  const handleSelectChange = (state) => {
+    handleStateSelection(state);
+  };
+
   return (
-    <div
-      id="data"
-      className={`d-flex flex-column flex-lg-row align-items-center justify-content-center ${divStatus}`}
-      onClick={handleDivClick}
-    >
-      <div id="icon" className={`mr-2 d-flex align-items-center ${iconStatus}`}>
-        <i className="fas fa-clinic-medical"></i>
-        <p
-          id="subtitle"
-          className={
-            divStatus !== 'sm-9 col-lg-9' ? 'ml-4 d-lg-none' : 'd-none'
-          }
+    <div id="data" className={divStatus} onClick={handleDivClick}>
+      <div className="d-flex flex-column m-auto h100 overScroll">
+        <div id="icon" className={`d-flex ${iconStatus}`}>
+          <i className="fas fa-clinic-medical m-auto"></i>
+          <p
+            id="subtitle"
+            className={
+              divStatus !== 'sm-9 col-lg-9'
+                ? 'text-nowrap ml-3 my-auto d-lg-none'
+                : 'd-none'
+            }
+          >
+            Casos por Estado
+          </p>
+          <div
+            id="title"
+            className={`text-center ml-3 my-auto ${
+              divStatus !== 'sm-9 col-lg-9' && 'd-none'
+            }`}
+          >
+            <h3>Casos por</h3>
+            <h1>Estado</h1>
+          </div>
+        </div>
+        <div
+          id="text"
+          className={`d-flex flex-column text-justify ${textStatus}`}
         >
-          Casos por UF
-        </p>
+          <SelectState onSelectChange={handleSelectChange} />
+          <StateData data={data} />
+        </div>
       </div>
     </div>
   );

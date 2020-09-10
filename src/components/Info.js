@@ -14,7 +14,7 @@ export default function Info({ mouseIn, mouseEvent, currentDiv, data }) {
       setTextStatus('hide');
     } else if (currentDiv === 'info') {
       setDivStatus('sm-9 col-lg-9');
-      setIconStatus('mx-auto mt-5 mb-2 my-lg-4');
+      setIconStatus('mx-auto my-5 my-lg-4');
       setTextStatus('showText');
     } else {
       setDivStatus('sm-1 col-lg-1');
@@ -31,9 +31,9 @@ export default function Info({ mouseIn, mouseEvent, currentDiv, data }) {
 
   return (
     <div id="info" className={divStatus} onClick={handleDivClick}>
-      <div className="h100 overScroll d-flex flex-column m-auto">
+      <div className="d-flex flex-column m-auto h100 overScroll">
         <div id="icon" className={`d-flex ${iconStatus}`}>
-          <i className="mr-2 fas fa-file-medical"></i>
+          <i className="fas fa-file-medical m-auto"></i>
           <p
             id="subtitle"
             className={
@@ -44,15 +44,15 @@ export default function Info({ mouseIn, mouseEvent, currentDiv, data }) {
           >
             Total de Casos
           </p>
-        </div>
-        <div
-          id="title"
-          className={`mb-4 m-lg-0 text-center ${
-            divStatus !== 'sm-9 col-lg-9' && 'd-none'
-          }`}
-        >
-          <h3>Número Total de</h3>
-          <h1>Casos</h1>
+          <div
+            id="title"
+            className={`text-center ml-3 my-auto ${
+              divStatus !== 'sm-9 col-lg-9' && 'd-none'
+            }`}
+          >
+            <h3>Número Total de</h3>
+            <h1>Casos</h1>
+          </div>
         </div>
         <div
           id="text"
@@ -68,35 +68,35 @@ export default function Info({ mouseIn, mouseEvent, currentDiv, data }) {
             Praesent laoreet leo sed vestibulum ullamcorper. Interdum et
             malesuada fames ac ante ipsum primis in faucibus.
           </p>
-          <div className="d-flex flex-wrap align-items-center justify-content-center">
-            <div className="d-flex m-4">
-              <i id="infoIcon" className="mr-3 fas fa-head-side-virus"></i>
-              <div>
+          <div className="d-flex flex-wrap">
+            <div className="d-flex mx-auto my-3">
+              <i id="infoIcon" className="my-auto fas fa-head-side-virus"></i>
+              <div className="ml-3">
                 <p className="infoCaseName">Casos</p>
                 <p className="infoCaseNumber">{formatter.format(data.cases)}</p>
               </div>
             </div>
-            <div className="d-flex m-4">
-              <i id="infoIcon" className="mr-3 fas fa-head-side-cough"></i>
-              <div>
+            <div className="d-flex mx-auto my-3">
+              <i id="infoIcon" className="my-auto fas fa-head-side-cough"></i>
+              <div className="ml-3">
                 <p className="infoCaseName">Suspeitas</p>
                 <p className="infoCaseNumber">
                   {formatter.format(data.suspects)}
                 </p>
               </div>
             </div>
-            <div className="d-flex m-4">
-              <i id="infoIcon" className="mr-3 fas fa-virus-slash"></i>
-              <div>
-                <p className="infoCaseName">Negativos</p>
+            <div className="d-flex mx-auto my-3">
+              <i id="infoIcon" className="my-auto fas fa-virus-slash"></i>
+              <div className="ml-3">
+                <p className="infoCaseName">Descartados</p>
                 <p className="infoCaseNumber">
                   {formatter.format(data.refuses)}
                 </p>
               </div>
             </div>
-            <div className="d-flex m-4">
-              <i id="infoIcon" className="mr-3 fas fa-skull-crossbones"></i>
-              <div>
+            <div className="d-flex mx-auto my-3">
+              <i id="infoIcon" className="my-auto fas fa-skull-crossbones"></i>
+              <div className="ml-3">
                 <p className="infoCaseName">Mortes</p>
                 <p className="infoCaseNumber">
                   {formatter.format(data.deaths)}
