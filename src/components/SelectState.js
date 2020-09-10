@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function SelectState({ onButtonSelection, data }) {
+  const [currentValue, setCurrentValue] = useState('');
+
+  useEffect(() => {
+    if (!!data) {
+      setCurrentValue(data.uf);
+    }
+  }, [data]);
+
   const handleButtonClick = (event) => {
     onButtonSelection(event.target.value);
   };
 
-  const currentValue = !data ? '' : data.uf;
-
   return (
     <div>
-      <div className="d-none d-md-flex flex-wrap m-auto align-items-center justify-content-center">
+      <div className="d-none d-md-flex flex-wrap align-items-center justify-content-center">
         <button
           type="button"
           className={`btn btn-outline-light ${
@@ -281,9 +287,14 @@ export default function SelectState({ onButtonSelection, data }) {
           Tocantins
         </button>
       </div>
-      <div className="mx-4 d-md-none" onChange={handleButtonClick}>
+      <div className="mx-4 d-md-none">
         <label htmlFor="states">Selecione o Estado:</label>
-        <select className="custom-select" id="states">
+        <select
+          className="custom-select"
+          id="states"
+          value={currentValue}
+          onChange={handleButtonClick}
+        >
           <option value="" disabled>
             Estados
           </option>

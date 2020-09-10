@@ -66,7 +66,7 @@ h4 {
 }
 
 #icon {
-  font-size: 3.5rem;
+  font-size: 3rem;
 }
 
 #subtitle {
@@ -124,6 +124,15 @@ h4 {
     z-index: 10;
     transform: scale(1.2);
     transition: transform 0.5s;
+  }
+  .hideStateData {
+    opacity: 0;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+  }
+  .showStateData {
+    opacity: 1;
+    transition: opacity 1s;
   }
 }
 

@@ -12,8 +12,8 @@ export default function StateData({ data }) {
     <div
       className={
         !data
-          ? 'd-none'
-          : 'd-flex flex-column flex-md-row flex-md-wrap align-items-center justify-content-center'
+          ? 'hideStateData d-flex flex-column flex-md-row flex-md-wrap align-items-center justify-content-center'
+          : 'showStateData d-flex flex-column flex-md-row flex-md-wrap align-items-center justify-content-center'
       }
     >
       <div className="d-flex mx-3 my-3">

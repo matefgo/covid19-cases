@@ -54,7 +54,7 @@ export default function Etc({ mouseIn, mouseEvent, currentDiv }) {
         </div>
         <div
           id="text"
-          className={`d-flex flex-column mx-5 my-3 text-justify align-items-start ${textStatus}`}
+          className={`d-flex flex-column mx-5 text-justify align-items-start ${textStatus}`}
         >
           <div className="d-flex my-2 align-items-center justify-content-start">
             <i id="infoIcon" className="fas fa-people-arrows"></i>
@@ -99,7 +99,7 @@ export default function Etc({ mouseIn, mouseEvent, currentDiv }) {
             <i id="infoIcon" className="fas fa-house-user"></i>
             <div className="d-flex flex-column ml-3">
               <h4>Fique em casa</h4>
-              <p className="m-0">
+              <p>
                 Evite circulação desnecessária nas ruas, estádios, teatros,
                 shoppings, shows, cinemas e igrejas.
               </p>
