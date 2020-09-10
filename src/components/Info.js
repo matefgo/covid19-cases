@@ -31,7 +31,7 @@ export default function Info({ mouseIn, mouseEvent, currentDiv, data }) {
 
   return (
     <div id="info" className={divStatus} onClick={handleDivClick}>
-      <div className="d-flex flex-column m-auto h100 overScroll">
+      <div className="d-flex flex-column m-auto w100 h100 overScroll">
         <div id="icon" className={`d-flex ${iconStatus}`}>
           <i className="fas fa-file-medical m-auto"></i>
           <p
@@ -58,50 +58,34 @@ export default function Info({ mouseIn, mouseEvent, currentDiv, data }) {
           id="text"
           className={`d-flex flex-column mx-4 my-lg-3 text-justify ${textStatus}`}
         >
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            lacinia feugiat placerat. Quisque euismod lorem sed orci pharetra
-            consequat. Morbi ultrices iaculis euismod. Duis vel tempor purus, et
-            tempus est. Duis egestas, odio vitae imperdiet consectetur, mauris
-            justo ornare purus, vel sollicitudin mi purus quis sapien. Quisque
-            sit amet mattis neque. Aenean posuere eros eu sagittis tempor.
-            Praesent laoreet leo sed vestibulum ullamcorper. Interdum et
-            malesuada fames ac ante ipsum primis in faucibus.
-          </p>
-          <div className="d-flex flex-wrap">
-            <div className="d-flex mx-auto my-3">
-              <i id="infoIcon" className="my-auto fas fa-head-side-virus"></i>
-              <div className="ml-3">
-                <p className="infoCaseName">Casos</p>
-                <p className="infoCaseNumber">{formatter.format(data.cases)}</p>
-              </div>
+          <div className="d-flex mx-auto my-3">
+            <i id="infoIcon" className="my-auto fas fa-head-side-virus"></i>
+            <div className="ml-3 text-center">
+              <p className="infoCaseName">Casos</p>
+              <p className="infoCaseNumber">{formatter.format(data.cases)}</p>
             </div>
-            <div className="d-flex mx-auto my-3">
-              <i id="infoIcon" className="my-auto fas fa-head-side-cough"></i>
-              <div className="ml-3">
-                <p className="infoCaseName">Suspeitas</p>
-                <p className="infoCaseNumber">
-                  {formatter.format(data.suspects)}
-                </p>
-              </div>
+          </div>
+          <div className="d-flex mx-auto my-3">
+            <i id="infoIcon" className="my-auto far fa-question-circle"></i>
+            <div className="ml-3 text-center">
+              <p className="infoCaseName">Suspeitas</p>
+              <p className="infoCaseNumber">
+                {formatter.format(data.suspects)}
+              </p>
             </div>
-            <div className="d-flex mx-auto my-3">
-              <i id="infoIcon" className="my-auto fas fa-virus-slash"></i>
-              <div className="ml-3">
-                <p className="infoCaseName">Descartados</p>
-                <p className="infoCaseNumber">
-                  {formatter.format(data.refuses)}
-                </p>
-              </div>
+          </div>
+          <div className="d-flex mx-auto my-3">
+            <i id="infoIcon" className="my-auto fas fa-virus-slash"></i>
+            <div className="ml-3 text-center">
+              <p className="infoCaseName">Descartados</p>
+              <p className="infoCaseNumber">{formatter.format(data.refuses)}</p>
             </div>
-            <div className="d-flex mx-auto my-3">
-              <i id="infoIcon" className="my-auto fas fa-skull-crossbones"></i>
-              <div className="ml-3">
-                <p className="infoCaseName">Mortes</p>
-                <p className="infoCaseNumber">
-                  {formatter.format(data.deaths)}
-                </p>
-              </div>
+          </div>
+          <div className="d-flex mx-auto my-3">
+            <i id="infoIcon" className="my-auto fas fa-skull-crossbones"></i>
+            <div className="ml-3 text-center">
+              <p className="infoCaseName">Mortes</p>
+              <p className="infoCaseNumber">{formatter.format(data.deaths)}</p>
             </div>
           </div>
         </div>

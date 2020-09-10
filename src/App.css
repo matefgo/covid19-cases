@@ -3,7 +3,9 @@ p {
 }
 
 h1,
-h3 {
+h2,
+h3,
+h4 {
   margin: 0;
 }
 
@@ -113,6 +115,18 @@ h3 {
   }
 }
 
+@media (min-width: 768px) {
+  .btn.btn-outline-light {
+    margin: 0.5rem 0.5rem;
+    width: 18%;
+  }
+  .btn.btn-outline-light.active {
+    z-index: 10;
+    transform: scale(1.2);
+    transition: transform 0.5s;
+  }
+}
+
 @media (max-width: 991.98px) {
   .sm-1 {
     height: 10%;
@@ -128,11 +142,16 @@ h3 {
   }
   .hide {
     position: absolute;
+    top: 100%;
     opacity: 0;
     font-size: 0;
+    height: 0;
   }
   .overScroll {
     overflow-y: scroll;
+  }
+  .w100 {
+    width: 100%;
   }
   .h100 {
     height: 100%;
@@ -140,6 +159,10 @@ h3 {
   .showText {
     opacity: 1;
     transition: opacity 0.5s 0.5s;
+  }
+  .btn.btn-outline-light {
+    margin: 0.5rem 0.5rem;
+    width: 18%;
   }
   #icon {
     font-size: 13vw;

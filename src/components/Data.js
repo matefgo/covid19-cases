@@ -35,13 +35,13 @@ export default function Data({
     }
   };
 
-  const handleSelectChange = (state) => {
+  const handleButtonSelection = (state) => {
     handleStateSelection(state);
   };
 
   return (
     <div id="data" className={divStatus} onClick={handleDivClick}>
-      <div className="d-flex flex-column m-auto h100 overScroll">
+      <div className="d-flex flex-column m-auto w100 h100 overScroll">
         <div id="icon" className={`d-flex ${iconStatus}`}>
           <i className="fas fa-clinic-medical m-auto"></i>
           <p
@@ -64,11 +64,12 @@ export default function Data({
             <h1>Estado</h1>
           </div>
         </div>
-        <div
-          id="text"
-          className={`d-flex flex-column text-justify ${textStatus}`}
-        >
-          <SelectState onSelectChange={handleSelectChange} />
+        <div id="text" className={textStatus}>
+          <SelectState
+            onButtonSelection={handleButtonSelection}
+            divStatus={divStatus}
+            data={data}
+          />
           <StateData data={data} />
         </div>
       </div>

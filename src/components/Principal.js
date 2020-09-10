@@ -56,27 +56,25 @@ export default function Principal({ mouseIn, mouseEvent, currentDiv }) {
           id="textPrincipal"
           className={`d-flex flex-column mx-4 my-lg-3 text-justify ${textStatus}`}
         >
-          <h4>COVID-19</h4>
+          <h4 className="mb-1">COVID-19</h4>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            lacinia feugiat placerat. Quisque euismod lorem sed orci pharetra
-            consequat. Morbi ultrices iaculis euismod. Duis vel tempor purus, et
-            tempus est. Duis egestas, odio vitae imperdiet consectetur, mauris
-            justo ornare purus, vel sollicitudin mi purus quis sapien. Quisque
-            sit amet mattis neque. Aenean posuere eros eu sagittis tempor.
-            Praesent laoreet leo sed vestibulum ullamcorper. Interdum et
-            malesuada fames ac ante ipsum primis in faucibus.
+            A COVID-19 é uma doença causada pelo coronavírus, denominado
+            SARS-CoV-2, que apresenta um espectro clínico variando de infecções
+            assintomáticas a quadros graves. De acordo com a Organização Mundial
+            de Saúde, a maioria (cerca de 80%) dos pacientes com COVID-19 podem
+            ser assintomáticos ou oligossintomáticos (poucos sintomas), e
+            aproximadamente 20% dos casos detectados requer atendimento
+            hospitalar por apresentarem dificuldade respiratória, dos quais
+            aproximadamente 5% podem necessitar de suporte ventilatório.
           </p>
-          <h4>Como os dados são monitorados?</h4>
+          <h4 className="mb-1">Como os dados são monitorados?</h4>
           <p>
-            Phasellus interdum tellus id felis vestibulum dictum. Fusce risus
-            velit, varius sit amet felis et, cursus tempus elit. Praesent
-            euismod urna quis odio consequat, sit amet rhoncus arcu tempor.
-            Maecenas at leo quis dui aliquet accumsan. Nunc quis ligula nec
-            dolor gravida consequat. Proin sed dictum diam. In venenatis, enim
-            non cursus gravida, nulla ipsum euismod justo, nec mattis lectus
-            dolor at lectus. Ut lacus felis, vehicula elementum nibh sit amet,
-            mattis mollis nisl.
+            O processo de atualização dos dados sobre casos e óbitos confirmados
+            por COVID-19 no Brasil é realizado diariamente pelo Ministério da
+            Saúde através das informações oficiais repassadas pelas Secretarias
+            Estaduais de Saúde das 27 Unidades Federativas brasileiras. Os dados
+            fornecidos pelos estados são consolidados e disponibilizados
+            publicamente todos os dias, em torno das 19h.
           </p>
         </div>
       </div>
